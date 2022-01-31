@@ -13,8 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 
-// from : https://www.raywenderlich.com/15361077-jetpack-compose-tutorial-for-android-getting-started
-// update with last changes about Jetpack Compose
+
 class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
