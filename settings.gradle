@@ -1,2 +1,3 @@
 rootProject.name='ComposableCookBook'
 include ':app'
+include ':app_drawicons'
