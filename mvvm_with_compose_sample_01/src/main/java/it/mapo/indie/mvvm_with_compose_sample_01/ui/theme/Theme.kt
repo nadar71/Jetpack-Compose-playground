@@ -1,4 +1,4 @@
-package it.mapo.indie.app_drawicons.ui.theme
+package it.mapo.indie.mvvm_with_compose_sample_01.ui.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
@@ -28,7 +28,7 @@ private val LightColorPalette = lightColors(
 )
 
 @Composable
-fun ComposableDrawIconsTheme(
+fun ComposableMvvmComposeTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable() () -> Unit
 ) {

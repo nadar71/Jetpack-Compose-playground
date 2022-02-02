@@ -1,3 +1,5 @@
 rootProject.name='ComposableCookBook'
-include ':app'
+include ':app_recipe_card_list'
 include ':app_drawicons'
+include ':mvvm_with_compose_sample_01'
+include ':app_expandable_list'
