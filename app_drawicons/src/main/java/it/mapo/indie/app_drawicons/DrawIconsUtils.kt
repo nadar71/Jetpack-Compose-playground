@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun instagramIcon() {
+fun InstagramIcon() {
     val instaColors = listOf(Color.Yellow, Color.Red, Color.Magenta)
     Canvas(
         modifier = Modifier
@@ -48,7 +48,7 @@ fun instagramIcon() {
 
 
 @Composable
-fun facebookIcon() {
+fun FacebookIcon() {
     val assetManager = LocalContext.current.assets
     val paint = Paint().apply {
         textAlign = Paint.Align.CENTER
@@ -72,7 +72,7 @@ fun facebookIcon() {
 
 
 @Composable
-fun messengerIcon() {
+fun MessengerIcon() {
     val colors = listOf(Color(0xFF02b8f9), Color(0xFF0277fe))
     Canvas(
         modifier = Modifier
@@ -117,7 +117,7 @@ fun messengerIcon() {
 
 
 @Composable
-fun googleIcon() {
+fun GoogleIcon() {
 
     Canvas(
         modifier = Modifier
@@ -187,7 +187,7 @@ fun googleIcon() {
 }
 
 @Composable
-fun getYoutubeIcon() {
+fun GetYoutubeIcon() {
     Canvas(
         modifier = Modifier
             .size(100.dp)
@@ -211,7 +211,7 @@ fun getYoutubeIcon() {
 }
 
 @Composable
-fun getGooglePhotosIcon() {
+fun GetGooglePhotosIcon() {
     Canvas(
         modifier = Modifier
             .size(100.dp)
@@ -256,7 +256,7 @@ fun getGooglePhotosIcon() {
 }
 
 @Composable
-fun googleAssistant() {
+fun GoogleAssistant() {
     Canvas(
         modifier = Modifier
             .size(100.dp)
@@ -294,7 +294,7 @@ fun googleAssistant() {
 }
 
 @Composable
-fun googleAds() {
+fun GoogleAds() {
     Canvas(
         modifier = Modifier
             .size(100.dp)
@@ -322,7 +322,7 @@ fun googleAds() {
 }
 
 @Composable
-fun getGoogleVoiceSearch() {
+fun GetGoogleVoiceSearch() {
     Canvas(
         modifier = Modifier
             .size(100.dp)
@@ -374,7 +374,7 @@ fun getGoogleVoiceSearch() {
 }
 
 @Composable
-fun getStackOverflow() {
+fun GetStackOverflow() {
     Canvas(
         modifier = Modifier
             .size(100.dp)
@@ -438,7 +438,7 @@ fun getStackOverflow() {
 }
 
 @Composable
-fun getSpotify() {
+fun GetSpotify() {
     Canvas(
         modifier = Modifier
             .size(100.dp)
@@ -491,7 +491,7 @@ fun getSpotify() {
 }
 
 @Composable
-fun getTrello() {
+fun GetTrello() {
     Canvas(
         modifier = Modifier
             .size(100.dp)
@@ -514,7 +514,7 @@ fun getTrello() {
 }
 
 @Composable
-fun getZoom() {
+fun GetZoom() {
     val zoomColors = listOf(Color(0xFF56a2ff), Color(0xFF3d83fc))
     Canvas(
         modifier = Modifier
@@ -570,7 +570,7 @@ fun getZoom() {
 }
 
 @Composable
-fun getAndroidIcon() {
+fun GetAndroidIcon() {
 
     Canvas(
         modifier = Modifier
@@ -615,7 +615,7 @@ fun getAndroidIcon() {
 }
 
 @Composable
-fun getWeatherApp() {
+fun GetWeatherApp() {
     val backgroundColor = listOf(Color(0xFF2078EE), Color(0xFF74E6FE))
     val sunColor = listOf(Color(0xFFFFC200), Color(0xFFFFE100))
     Canvas(

@@ -7,8 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -36,30 +34,30 @@ fun getAllIcons() {
         verticalArrangement = Arrangement.SpaceAround
     ) {
         Row(horizontalArrangement = Arrangement.SpaceAround) {
-            instagramIcon()
-            facebookIcon()
-            messengerIcon()
+            InstagramIcon()
+            FacebookIcon()
+            MessengerIcon()
         }
 
         Row(horizontalArrangement = Arrangement.SpaceAround) {
-            googleIcon()
-            getYoutubeIcon()
-            getGooglePhotosIcon()
+            GoogleIcon()
+            GetYoutubeIcon()
+            GetGooglePhotosIcon()
         }
         Row(horizontalArrangement = Arrangement.SpaceAround) {
-            googleAssistant()
-            googleAds()
-            getGoogleVoiceSearch()
+            GoogleAssistant()
+            GoogleAds()
+            GetGoogleVoiceSearch()
         }
         Row(horizontalArrangement = Arrangement.SpaceAround) {
-            getStackOverflow()
-            getSpotify()
-            getTrello()
+            GetStackOverflow()
+            GetSpotify()
+            GetTrello()
         }
         Row(horizontalArrangement = Arrangement.SpaceAround) {
-            getZoom()
-            getAndroidIcon()
-            getWeatherApp()
+            GetZoom()
+            GetAndroidIcon()
+            GetWeatherApp()
         }
     }
 }
@@ -71,7 +69,7 @@ fun DefaultPreview() {
         // Greeting("Android")
         // draw icons
         // getAllIcons()
-        facebookIcon()
+        FacebookIcon()
     }
 }
 
