@@ -12,7 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import it.mapo.indie.app_drawicons.ui.theme.ComposableCookBookTheme
+import it.mapo.indie.app_drawicons.ui.theme.ComposableDrawIconsTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -65,7 +65,7 @@ fun getAllIcons() {
 @Composable
 @Preview(showBackground = true)
 fun DefaultPreview() {
-    ComposableCookBookTheme {
+    ComposableDrawIconsTheme {
         // Greeting("Android")
         // draw icons
         // getAllIcons()

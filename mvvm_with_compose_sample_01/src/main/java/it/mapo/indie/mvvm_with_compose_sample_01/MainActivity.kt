@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import it.mapo.indie.mvvm_with_compose_sample_01.ui.theme.ComposableMvvmComposeTheme
 import java.util.*
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +25,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val vm = UserViewModel()
         setContent {
-            MaterialTheme {
+            ComposableMvvmComposeTheme {
                 UserView(vm)
             }
         }
