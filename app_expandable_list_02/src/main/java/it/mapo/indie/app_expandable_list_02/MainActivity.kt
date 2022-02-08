@@ -1,5 +1,6 @@
 package it.mapo.indie.app_expandable_list_02
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,16 +20,17 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import it.mapo.indie.app_expandable_list_02.ui.theme.ComposableExpandableList_01_Theme
+import it.mapo.indie.app_expandable_list_02.ui.theme.ComposableExpandableList_02_Theme
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.font.FontWeight
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            ComposableExpandableList_01_Theme {
+            ComposableExpandableList_02_Theme {
                 MyApp()
             }
         }
@@ -83,7 +85,9 @@ fun Greeting(name: String) {
             )
             {
                 Text(text = "Hello,")
-                Text(text = name)
+                Text(text = name, style = MaterialTheme.typography.h4
+                    .copy(fontWeight = FontWeight.ExtraBold)
+                )
             }
 
             OutlinedButton(
@@ -126,7 +130,7 @@ fun OnBoardingScreen(onContinueClicked: () -> Unit){
     heightDp = 960)
 @Composable
 fun MyAppPreview() {
-    ComposableExpandableList_01_Theme {
+    ComposableExpandableList_02_Theme {
         MyApp()
     }
 }
@@ -139,7 +143,22 @@ fun MyAppPreview() {
     heightDp = 960)
 @Composable
 fun OnBoardingScreenPreview() {
-    ComposableExpandableList_01_Theme {
+    ComposableExpandableList_02_Theme {
         OnBoardingScreen(onContinueClicked = {})
+    }
+}
+
+
+@Preview(
+    showBackground = true,
+    widthDp = 320,
+    uiMode = UI_MODE_NIGHT_YES,
+    name = "DefaultPreviewDark"
+)
+@Preview(showBackground = true, widthDp = 320)
+@Composable
+fun DefaultPreview() {
+    ComposableExpandableList_02_Theme {
+        Greetings()
     }
 }
