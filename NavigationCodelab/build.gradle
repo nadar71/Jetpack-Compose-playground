@@ -19,7 +19,7 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
-    signingConfigs {
+    /*signingConfigs {
         // We use a bundled debug keystore, to allow debug builds from CI to be upgradable
         debug {
             storeFile rootProject.file('debug.keystore')
@@ -27,12 +27,12 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
-    }
+    }*/
 
     buildTypes {
-        debug {
+        /*debug {
             signingConfig signingConfigs.debug
-        }
+        }*/
 
         release {
             minifyEnabled true

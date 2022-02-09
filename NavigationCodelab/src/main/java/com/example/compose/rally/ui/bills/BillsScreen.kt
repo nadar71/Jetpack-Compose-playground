@@ -1,30 +1,20 @@
-/*
- * Copyright 2021 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 package com.example.compose.rally.ui.bills
 
+import android.content.res.Configuration
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.compose.rally.R
+import com.example.compose.rally.RallyApp
 import com.example.compose.rally.data.Bill
+import com.example.compose.rally.data.UserData
 import com.example.compose.rally.ui.components.BillRow
 import com.example.compose.rally.ui.components.StatementBody
+import com.example.compose.rally.ui.theme.RallyTheme
 
 /**
  * The Bills screen.
@@ -42,4 +32,19 @@ fun BillsBody(bills: List<Bill>) {
             BillRow(bill.name, bill.due, bill.amount, bill.color)
         }
     )
+}
+
+
+// -------------------------------- PREVIEWS ---------------------------------------------
+@Preview(
+    showBackground = true,
+    widthDp = 320,
+    uiMode = Configuration.UI_MODE_NIGHT_YES,
+    name = "DefaultPreviewDark"
+)
+@Composable
+fun BillsBodyPreview() {
+    RallyTheme{
+        BillsBody(UserData.bills)
+    }
 }
