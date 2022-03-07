@@ -6,7 +6,6 @@ import android.content.res.Configuration
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -21,7 +20,7 @@ import com.example.compose.rally.data.UserData
 import com.example.compose.rally.ui.accounts.AccountsBody
 import com.example.compose.rally.ui.accounts.SingleAccountBody
 import com.example.compose.rally.ui.bills.BillsBody
-import com.example.compose.rally.ui.components.RallyTabRow
+import com.example.compose.rally.ui.components.RallyTopAppBar
 import com.example.compose.rally.ui.overview.OverviewBody
 import com.example.compose.rally.ui.theme.RallyTheme
 
@@ -55,14 +54,13 @@ fun RallyApp() {
 
         Scaffold(
             topBar = {
-                RallyTabRow(
+                RallyTopAppBar(
                     allScreens = allScreens,
                     onTabSelected = { screen -> navController.navigate(screen.name) },
                     currentScreen = currentScreen
                 )
             }
         ) { innerPadding ->
-
             RallyNavHost(
                 navController = navController,
                 modifier = Modifier.padding(innerPadding))

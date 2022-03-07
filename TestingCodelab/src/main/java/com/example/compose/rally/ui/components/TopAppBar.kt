@@ -49,7 +49,7 @@ import com.example.compose.rally.RallyScreen
 import java.util.Locale
 
 @Composable
-fun RallyTabRow(
+fun RallyTopAppBar(
     allScreens: List<RallyScreen>,
     onTabSelected: (RallyScreen) -> Unit,
     currentScreen: RallyScreen
@@ -110,7 +110,7 @@ private fun RallyTab(
             )
             .clearAndSetSemantics { contentDescription = text }
     ) {
-        Icon(imageVector = icon, contentDescription = text, tint = tabTintColor)
+        Icon(imageVector = icon, contentDescription = null, tint = tabTintColor)
         if (selected) {
             Spacer(Modifier.width(12.dp))
             Text(text.uppercase(Locale.getDefault()), color = tabTintColor)
