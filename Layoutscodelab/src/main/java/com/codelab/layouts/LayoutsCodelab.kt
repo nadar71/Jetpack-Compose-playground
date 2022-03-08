@@ -78,7 +78,7 @@ fun BodyContent(modifier: Modifier = Modifier) {
     Row(modifier = modifier
         .background(color = Color.LightGray)
         .padding(16.dp)
-        .size(200.dp)
+        // .size(200.dp)
         .horizontalScroll(rememberScrollState()),
         content = {
             StaggeredGrid {
