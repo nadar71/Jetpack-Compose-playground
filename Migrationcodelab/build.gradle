@@ -1,0 +1,226 @@
+/*
+ * Copyright 2018 Google LLC
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion 31
+    defaultConfig {
+        applicationId "it.mapo.indie.migrationcodelab"
+        minSdkVersion 21
+        targetSdkVersion 31
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        versionCode 1
+        versionName "0.1.6"
+        vectorDrawables.useSupportLibrary true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+        useIR = true
+    }
+    buildFeatures {
+        dataBinding true
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.1.0-beta03"
+    }
+    packagingOptions {
+        // Multiple dependency bring these files in. Exclude them to enable
+        // our test APK to build (has no effect on our AARs)
+        excludes += "/META-INF/AL2.0"
+        excludes += "/META-INF/LGPL2.1"
+    }
+}
+
+dependencies {
+    kapt "androidx.room:room-compiler:$roomVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"
+    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.viewpager2:viewpager2:$viewPagerVersion"
+    implementation "androidx.work:work-runtime-ktx:$workVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+
+    // Compose
+    implementation "androidx.compose.runtime:runtime:$composeVersion"
+    implementation "androidx.compose.ui:ui:$composeVersion"
+    implementation "androidx.compose.foundation:foundation:$composeVersion"
+    implementation "androidx.compose.foundation:foundation-layout:$composeVersion"
+    implementation "androidx.compose.material:material:$composeVersion"
+    implementation "androidx.compose.runtime:runtime-livedata:$composeVersion"
+    implementation "androidx.compose.ui:ui-tooling-preview:$composeVersion"
+    implementation "com.google.android.material:compose-theme-adapter:$materialComposeAdapterVersion"
+    debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
+
+    // Testing dependencies
+    androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+    androidTestImplementation "androidx.test.ext:junit:$testExtJunit"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
+    androidTestImplementation "androidx.work:work-testing:$workVersion"
+    androidTestImplementation "com.google.truth:truth:$truthVersion"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$composeVersion"
+    testImplementation "junit:junit:$junitVersion"
+}
+
+
+
+
+
+/*
+
+plugins {
+    apply 'com.android.application'
+    apply 'kotlin-android'
+    apply plugin: 'kotlin-android-extensions'
+    apply plugin: 'kotlin-kapt'
+    apply plugin: 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "it.mapo.indie.migrationcodelab"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = '11'
+        useIR = true
+    }
+
+    buildFeatures {
+        compose true
+        dataBinding true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion "1.1.0-beta03"
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+    kapt "androidx.room:room-compiler:$roomVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
+    implementation "androidx.appcompat:appcompat:$appCompatVersion"
+    implementation "androidx.core:core-ktx:$ktxVersion"
+    implementation "com.google.android.material:material:$materialVersion"
+    implementation "androidx.fragment:fragment-ktx:$fragmentVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigationVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigationVersion"
+    implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    implementation "androidx.viewpager2:viewpager2:$viewPagerVersion"
+    implementation "androidx.work:work-runtime-ktx:$workVersion"
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+
+    // Compose
+    implementation "androidx.compose.runtime:runtime:$composeVersion"
+    implementation "androidx.compose.ui:ui:$composeVersion"
+    implementation "androidx.compose.foundation:foundation:$composeVersion"
+    implementation "androidx.compose.foundation:foundation-layout:$composeVersion"
+    implementation "androidx.compose.material:material:$composeVersion"
+    implementation "androidx.compose.runtime:runtime-livedata:$composeVersion"
+    implementation "androidx.compose.ui:ui-tooling-preview:$composeVersion"
+    implementation "androidx.compose.material:material-icons-extended:$composeVersion"
+    implementation "androidx.activity:activity-compose:$activityComposeVersion"
+    implementation "androidx.navigation:navigation-compose:$navigationCompose"
+    implementation "com.google.android.material:compose-theme-adapter:$materialComposeAdapterVersion"
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0"
+
+
+    debugImplementation "androidx.compose.ui:ui-tooling:$composeVersion"
+
+
+    // Testing dependencies
+    androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+    // Compose testing dependencies
+    androidTestImplementation "androidx.compose.ui:ui-test:$composeVersion"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$composeVersion"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$composeVersion"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$uiAutomatorVersion"
+    androidTestImplementation "androidx.work:work-testing:$workVersion"
+    androidTestImplementation "com.google.truth:truth:$truthVersion"
+}*/
