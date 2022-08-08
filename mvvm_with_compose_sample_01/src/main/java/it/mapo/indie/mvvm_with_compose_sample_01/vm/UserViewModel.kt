@@ -1,7 +1,9 @@
+import android.util.Log
 import androidx.compose.runtime.*
 import androidx.lifecycle.ViewModel
 
 class UserViewModel : ViewModel() {
+
     private val _users = mutableStateListOf<User>()
 
     val users: List<User>

@@ -3,6 +3,7 @@ package it.mapo.indie.mvvm_with_compose_sample_01
 import User
 import UserViewModel
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -15,52 +16,61 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import it.lemonpie.subscriptionmanager.feature_subscription.presentation.navigation.AppNavigation
 import it.mapo.indie.mvvm_with_compose_sample_01.ui.theme.ComposableMvvmComposeTheme
 import java.util.*
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val vm = UserViewModel()
+
         setContent {
             ComposableMvvmComposeTheme {
-                UserView(vm)
+                MainScreen()
+                // HomeScreen()
+                // UserView()
             }
         }
     }
 }
 
 
-
 @Composable
-@Preview
-fun UserView(vm: UserViewModel) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text("Users") },
-                actions = {
-                    IconButton(onClick = {
-                        vm.addUser(User(UUID.randomUUID(), "User"))
-                    }) {
-                        Icon(Icons.Filled.Add, null)
-                    }
-                })
-        },
-        content = {
-            Column(modifier = Modifier.padding(16.dp)) {
-                LazyColumn(modifier = Modifier.fillMaxHeight()) {
-                    items(vm.users) {
-                        Column {
-                            Text(it.name)
-                            Text("${it.id}")
-                        }
+fun NavigationGraph(
+    navController: NavHostController,
+) {
 
-                    }
-                }
-            }
+    NavHost(
+        navController,
+        startDestination = "homeScreen"
+    ) {
+
+        composable("homeScreen") {
+            Log.d("DEBUG_ROUTING", "NavigationGraph: go to home")
+            HomeScreen(navController)
         }
-    )
+
+        composable("userScreen") {
+            Log.d("DEBUG_ROUTING", "UserView: starting route.")
+            UserScreen(navController)
+        }
+
+        composable("editTextTestScreen") {
+            EditTextTestScreen(navController)
+        }
+
+    }
 }
+
+
+
+
+
+
+
